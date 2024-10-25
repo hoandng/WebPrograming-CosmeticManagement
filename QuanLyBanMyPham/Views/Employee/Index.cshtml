@@ -1,0 +1,32 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.User> 
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Danh Sách Nhân Viên</h2>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Thêm Nhân Viên</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+                <td><a asp-action="Edit" asp-route-id="@user.UserId">Chỉnh sửa</a>|<a asp-action="Xóa" asp-route-id="@user.UserId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

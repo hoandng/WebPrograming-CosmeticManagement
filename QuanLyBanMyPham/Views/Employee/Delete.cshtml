@@ -1,0 +1,20 @@
+﻿@model QuanLyBanMyPham.Models.User
+
+@{
+    ViewBag.Title = "Xóa Nhân Viên";
+}
+
+<h2>Xóa Nhân Viên</h2>
+
+<div>
+    <h4>Bạn có chắc chắn muốn xóa nhân viên này không?</h4>
+    <p><strong>Họ và tên:</strong> @Model.FullName</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Số điện thoại:</strong> @Model.Phone</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="UserId" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>
