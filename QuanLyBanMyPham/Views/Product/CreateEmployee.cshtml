@@ -1,0 +1,57 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Thêm Sản Phẩm";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+<h1 style="color: #FF1493">Thêm Sản Phẩm</h1>
+<div class="ms-2 mx-2">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-controller="Product" asp-action="CreateEmployee" method="post" class="mt-3">
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="ProductName" class="col-sm-2 col-form-label">Tên Sản Phẩm</label>
+            <div class="col-sm-10">
+                <input asp-for="ProductName" class="form-control" placeholder="Tên sản phẩm" />
+            </div>
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="Price" class="col-sm-2 col-form-label">Giá</label>
+            <div class="col-sm-10">
+                <input asp-for="Price" class="form-control" placeholder="Giá" />
+            </div>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="Quantity" class="col-sm-2 col-form-label">Số Lượng</label>
+            <div class="col-sm-10">
+                <input asp-for="Quantity" class="form-control" placeholder="Số lượng" />
+            </div>
+            <span asp-validation-for="Quantity" class="text-danger"></span>
+        </div>
+
+
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="CategoryId" class="col-sm-2 col-form-label">Danh Mục</label>
+            <div class="col-sm-4">
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
+                    <option value="">Chọn danh mục</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <label asp-for="SupplierId" class="col-sm-2 col-form-label">Nhà Cung Cấp</label>
+            <div class="col-sm-4">
+                <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.SupplierId">
+                    <option value="">Chọn nhà cung cấp</option>
+                </select>
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group row" style="margin-top: 15px;">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-create">Thêm Sản Phẩm Mới</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -9,51 +9,275 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuanLyBanMyPham
 build_property.RootNamespace = QuanLyBanMyPham
-build_property.ProjectDir = \\Mac\Home\Desktop\TKWEB\BaiTapLon\QuanLyBanMyPham\
+build_property.ProjectDir = D:\backend\QuanLyBanMyPham\QuanLyBanMyPham\QuanLyBanMyPham\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = \\Mac\Home\Desktop\TKWEB\BaiTapLon\QuanLyBanMyPham
+build_property.MSBuildProjectDirectory = D:\backend\QuanLyBanMyPham\QuanLyBanMyPham\QuanLyBanMyPham
 build_property._RazorSourceGeneratorDebug = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Employee/Delete.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Account/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Account/EditUserCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0VXNlckN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Account/EditUserEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0VXNlckVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Account/IndexCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Account/IndexEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3JlYXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/DeleteEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGVsZXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRWRpdEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Customer/IndexEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXhFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Employee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Employee/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Employee/Edit.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Employee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Employee/Index.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Home/Index.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Home/Privacy.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Shared/Error.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Menu/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/DeleteCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGVsZXRlQ3VzdG9tZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/DeleteEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGVsZXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/DetailCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsQ3VzdG9tZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/DetailEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/EditCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRWRpdEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/IndexCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXhDdXN0b21lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/IndexEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXhFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/OrderTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/OrderTableCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJUYWJsZUN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/OrderTableEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJUYWJsZUVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGVFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/DeleteEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGVFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0RW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/IndexCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/IndexEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Product/ProductTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxQcm9kdWN0VGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/Components/Order/RenderOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcT3JkZXJcUmVuZGVyT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/Components/Product/RenderProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFxSZW5kZXJQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/CustomerLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEN1c3RvbWVyTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/EmployeeLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVtcGxveWVlTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/LeftMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExlZnRNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/LeftmenuCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExlZnRtZW51Q3VzdG9tZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/LeftMenuEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExlZnRNZW51RW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/_ViewImports.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcQ3JlYXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/DeleteEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcRGVsZXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/Editemployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcRWRpdGVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Supplier/IndexEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcSW5kZXhFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/_ViewStart.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Mac/Home/Desktop/TKWEB/BaiTapLon/QuanLyBanMyPham/Views/Shared/_Layout.cshtml]
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-u9acxgjt21

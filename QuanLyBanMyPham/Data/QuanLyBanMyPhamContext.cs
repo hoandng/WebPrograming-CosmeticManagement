@@ -32,7 +32,7 @@ public partial class QuanLyBanMyPhamContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=10.211.55.2;Initial Catalog=QuanLyBanMyPham;Persist Security Info=True;User ID=SA;Password=12345Aa@;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=QuanLyBanMyPham;Persist Security Info=True;User ID=sa;Password=123456;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -43,11 +43,12 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.ToTable("categories");
 
             entity.Property(e => e.CategoryId)
-                .ValueGeneratedNever()
+
+                .ValueGeneratedOnAdd()
                 .HasColumnName("category_id");
             entity.Property(e => e.CategoryName)
                 .HasMaxLength(100)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("category_name");
         });
 
@@ -58,12 +59,12 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.ToTable("orders");
 
             entity.Property(e => e.OrderId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("order_id");
             entity.Property(e => e.OrderDate).HasColumnName("order_date");
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("status");
             entity.Property(e => e.TotalAmount)
                 .HasColumnType("decimal(10, 2)")
@@ -82,7 +83,7 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.ToTable("order_details");
 
             entity.Property(e => e.OrderDetailId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("order_detail_id");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.Price)
@@ -107,7 +108,7 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.ToTable("products");
 
             entity.Property(e => e.ProductId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("product_id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
             entity.Property(e => e.Price)
@@ -115,7 +116,7 @@ public partial class QuanLyBanMyPhamContext : DbContext
                 .HasColumnName("price");
             entity.Property(e => e.ProductName)
                 .HasMaxLength(100)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("product_name");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.SupplierId).HasColumnName("supplier_id");
@@ -138,11 +139,11 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.HasIndex(e => e.RoleName, "UQ__roles__783254B1D51AC7E9").IsUnique();
 
             entity.Property(e => e.RoleId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("role_id");
             entity.Property(e => e.RoleName)
                 .HasMaxLength(50)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("role_name");
         });
 
@@ -153,27 +154,27 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.ToTable("suppliers");
 
             entity.Property(e => e.SupplierId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("supplier_id");
             entity.Property(e => e.Address)
                 .HasMaxLength(255)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("address");
             entity.Property(e => e.ContactName)
                 .HasMaxLength(100)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("contact_name");
             entity.Property(e => e.Email)
                 .HasMaxLength(100)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("email");
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("phone");
             entity.Property(e => e.SupplierName)
                 .HasMaxLength(100)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("supplier_name");
         });
 
@@ -186,28 +187,28 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.HasIndex(e => e.Username, "UQ__users__F3DBC572462868DE").IsUnique();
 
             entity.Property(e => e.UserId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("user_id");
             entity.Property(e => e.Email)
                 .HasMaxLength(100)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("email");
             entity.Property(e => e.FullName)
                 .HasMaxLength(100)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("full_name");
             entity.Property(e => e.Password)
                 .HasMaxLength(255)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("password");
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("phone");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
             entity.Property(e => e.Username)
                 .HasMaxLength(50)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("username");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)

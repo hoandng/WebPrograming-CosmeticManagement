@@ -4041,23 +4041,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tu\\.nuget\\packages\\": {},
+    "C:\\Users\\Nguyen An Thach\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\Mac\\Home\\Desktop\\TKWEB\\BaiTapLon\\QuanLyBanMyPham\\QuanLyBanMyPham.csproj",
+      "projectUniqueName": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham.csproj",
       "projectName": "QuanLyBanMyPham",
-      "projectPath": "\\\\Mac\\Home\\Desktop\\TKWEB\\BaiTapLon\\QuanLyBanMyPham\\QuanLyBanMyPham.csproj",
-      "packagesPath": "C:\\Users\\tu\\.nuget\\packages\\",
-      "outputPath": "\\\\Mac\\Home\\Desktop\\TKWEB\\BaiTapLon\\QuanLyBanMyPham\\obj\\",
+      "projectPath": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham.csproj",
+      "packagesPath": "C:\\Users\\Nguyen An Thach\\.nuget\\packages\\",
+      "outputPath": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nguyen An Thach\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4130,7 +4130,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

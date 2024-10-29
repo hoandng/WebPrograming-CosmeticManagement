@@ -1,0 +1,45 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.Order>
+
+@{
+    ViewBag.Title = "Danh Sách Hóa Đơn";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<h1 style="color: #FF1493">Đơn Hàng Của Bạn</h1>
+@await Component.InvokeAsync("Order")
+<div class="table-responsive">
+    <table class="table table-bordered">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Khách hàng</th>
+                    <th>Ngày mua hàng</th>
+                    <th>Trạng thái</th>
+                    <th>Chức Năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.User.Username</td>
+                        <td>@order.OrderDate</td>
+                        <td>@order.Status</td>
+                        <td>
+                            <a asp-action="DetailCustomer" asp-route-id="@order.OrderId" class="btn btn-sm btn-success">
+                                <i class="fas fa-info-circle"></i> Chi Tiết
+                            </a>
+                            @if (order.Status == "Chờ xử lý")
+                            {
+                                <a asp-action="DeleteCustomer" asp-route-id="@order.OrderId" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Hủy Đơn
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </table>
+</div>
+

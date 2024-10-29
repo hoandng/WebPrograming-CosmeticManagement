@@ -1,0 +1,66 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.Order>
+
+@{
+    ViewBag.Title = "Danh Sách Hóa Đơn";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+<h1 style="color: #FF1493">Danh Sách Hóa Đơn</h1>
+@await Component.InvokeAsync("Order")
+        <div id="content">
+    <table class="table table-bordered">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Khách hàng</th>
+                    <th>Ngày xuất hóa đơn</th>
+                    <th>Trạng thái</th>
+                    <th>Chức Năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.User.Username</td>
+                        <td>@order.OrderDate</td>
+                        <td>@order.Status</td>
+                        <td>
+                            <a asp-action="DetailEmployee" asp-route-id="@order.OrderId" class="btn btn-sm btn-success">
+                                <i class="fas fa-info-circle"></i> Chi Tiết
+                            </a>
+                            <a asp-action="DeleteEmployee" asp-route-id="@order.OrderId" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash-alt"></i> Xóa
+                            </a>
+                            @if (order.Status == "Chờ xử lý")
+                            {
+                                <form asp-action="ConfirmOrder" method="post" style="display:inline;">
+                                    <input type="hidden" name="orderId" value="@order.OrderId" />
+                                    <button type="submit" class="btn btn-sm btn-warning text-white">
+                                        <i class="fas fa-check-circle"></i> Xác nhận
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </table>
+    </div>
+</div>
+
+@section Script {
+    <script>
+        $("li").click(function (e) {
+            var id = $(this).attr("id");
+            $.ajax({
+                url: "OrderByStatusEmployee",
+                data: { mid: id },
+                success: function (response) {
+                    $("div#content").html(response);
+                }
+            });
+        });
+    </script>
+}

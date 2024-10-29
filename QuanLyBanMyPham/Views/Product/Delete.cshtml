@@ -1,0 +1,54 @@
+﻿@model QuanLyBanMyPham.Models.Product
+
+@{
+    ViewBag.Title = "Xóa Sản Phẩm";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="color: #FF1493">Xóa Sản Phẩm</h1>
+<div class="alert alert-warning">
+    <strong>Cảnh báo!</strong> Bạn có chắc chắn muốn xóa sản phẩm này?
+</div>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên Sản Phẩm
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ProductName
+        </dd>
+        <dt class="col-sm-2">
+            Giá
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Price.ToString("C") 
+        </dd>
+        <dt class="col-sm-2">
+            Số Lượng
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Quantity
+        </dd>
+        <dt class="col-sm-2">
+            Danh Mục
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Category.CategoryName
+        </dd>
+        <dt class="col-sm-2">
+            Nhà Cung Cấp
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Supplier.SupplierName 
+        </dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <button type="submit" class="btn btn-danger">Xác Nhận Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Trở Về</a>
+</form>
