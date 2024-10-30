@@ -4,8 +4,7 @@
     Layout = "~/Views/Shared/CustomerLayout.cshtml";
 }
 <h1 style="color: #FF1493">Danh Sách Sản Phẩm</h1>
-@await Component.InvokeAsync("CategoryCustomer")
-<div id="content">
+
 <div class="product-list" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
     @foreach (var product in Model)
     {
@@ -23,27 +22,15 @@
         </div>
     }
 </div>
-</div>
 @section Scripts {
     <script>
-        $("li").click(function (e) {
-
-            var categoryId = $(this).attr("id");
-            $.ajax({
-                url: "ProductByCategoryIdCustomer",
-                data: { categoryId: id },
-                success: function (response) {
-                    $("div#content").html(response);
-                }
-            });
-        });
         function purchaseProduct(productId) {
             var quantity = $("#quantity-" + productId).val();
             console.log("Product ID: " + productId);
             console.log("Quantity: " + quantity);
             $.ajax({
                 type: "POST",
-                url: "@Url.Action("CreateOrder", "Product")", 
+                url: "@Url.Action("CreateOrder", "Product")",
                 data: { productId: productId, quantity: quantity },
                 success: function (response) {
                     if (response.success) {

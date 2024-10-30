@@ -6,6 +6,7 @@ using QuanLyBanMyPham.Data;
 using QuanLyBanMyPham.Models;
 using System.Collections.Immutable;
 using System.Security.Claims;
+using System.Security.Cryptography;
 
 namespace QuanLyBanMyPham.Controllers
 {
@@ -37,25 +38,29 @@ namespace QuanLyBanMyPham.Controllers
         public ActionResult OrdersByStatus(string mid)
 
         {
-
+        
             var orders = db.Orders.Where(l => l.Status ==mid).ToList();
             return PartialView("OrderTable", orders);
         }
-        public ActionResult OrdersByStatusEmployee(string mid)
-
+        public IActionResult OrdersByStatusEmployee(string mid)
         {
-
             var orders = db.Orders.Where(l => l.Status == mid).ToList();
             return PartialView("OrderTableEmployee", orders);
         }
 
 
-        public ActionResult IndexEmployee()
+        public ActionResult IndexEmployee(string mid)
         {
+
             var orders = db.Orders
                 .Include(o => o.User)
                 .Include(o => o.OrderDetails)
                 .ToList();
+            if (!string.IsNullOrEmpty(mid))
+            {
+                orders = orders.Where(l => l.Status == mid).ToList();
+            }
+
 
             return View(orders);
         }
@@ -68,9 +73,10 @@ namespace QuanLyBanMyPham.Controllers
             }
 
             var orders = db.Orders
-                .Include(o => o.User)
-                .Where(o => o.User.Username == currentUsername)
-                .ToList();
+            .Include(o => o.User)
+            .Where(o => o.User != null && o.User.Username == currentUsername)
+            .ToList();
+
 
             return View(orders);
         }
@@ -314,8 +320,56 @@ namespace QuanLyBanMyPham.Controllers
 
             return RedirectToAction(nameof(IndexEmployee)); 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AdminConfirmOrder(int orderId)
+        {
+            var order = db.Orders
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product)
+                .FirstOrDefault(o => o.OrderId == orderId);
 
-       
+            if (order != null && order.Status == "Chờ xử lý")
+            {
+
+                decimal totalAmount = 0;
+
+
+                foreach (var detail in order.OrderDetails)
+                {
+                    totalAmount += detail.Price * detail.Quantity;
+                }
+
+
+                order.TotalAmount = totalAmount;
+
+
+                order.Status = "Hoàn thành";
+
+
+                foreach (var detail in order.OrderDetails)
+                {
+
+                    var product = db.Products.FirstOrDefault(p => p.ProductId == detail.ProductId);
+                    if (product != null && product.Quantity >= detail.Quantity)
+                    {
+                        product.Quantity -= detail.Quantity;
+                    }
+                    else
+                    {
+
+                        ModelState.AddModelError("", $"Không đủ hàng tồn kho cho sản phẩm {product?.ProductName}");
+                        return View("Error");
+                    }
+                }
+
+                db.SaveChanges();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
 
 

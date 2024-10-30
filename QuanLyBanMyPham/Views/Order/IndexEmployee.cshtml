@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/EmployeeLayout.cshtml";
 }
 <h1 style="color: #FF1493">Danh Sách Hóa Đơn</h1>
-@await Component.InvokeAsync("Order")
-        <div id="content">
+@await Component.InvokeAsync("OrderEmployee")
+        <div id="contentemployee">
     <table class="table table-bordered">
 
         <table class="table">
@@ -50,7 +50,7 @@
     </div>
 </div>
 
-@section Script {
+@section Scripts {
     <script>
         $("li").click(function (e) {
             var id = $(this).attr("id");
@@ -58,7 +58,7 @@
                 url: "OrderByStatusEmployee",
                 data: { mid: id },
                 success: function (response) {
-                    $("div#content").html(response);
+                    $("div#contentemployee").html(response);
                 }
             });
         });

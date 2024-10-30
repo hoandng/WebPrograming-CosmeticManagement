@@ -1,30 +1,28 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuanLyBanMyPham.Data;
 using QuanLyBanMyPham.Models;
 
 namespace QuanLyBanMyPham.Controllers
 {
-    
-    public class CustomerController : Controller
+    public class CategoryController : Controller
     {
         private QuanLyBanMyPhamContext db;
-        public CustomerController(QuanLyBanMyPhamContext context)
+        public CategoryController(QuanLyBanMyPhamContext context)
         {
             db = context;
         }
-        public ActionResult Index()
+        public IActionResult Index()
         {
-            var employees = db.Users.Where(u => u.RoleId == 3).ToList();
+            var category = db.Categories.ToList();
 
-            return View(employees);
+            return View(category);
         }
-        public ActionResult IndexEmployee()
+        public IActionResult IndexEmployee()
         {
-            var employees = db.Users.Where(u => u.RoleId == 3).ToList();
+            var category = db.Categories.ToList();
 
-            return View(employees);
+            return View(category);
         }
         public IActionResult Create()
         {
@@ -33,16 +31,15 @@ namespace QuanLyBanMyPham.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Username, Password, FullName, Email, Phone")] User user)
+        public IActionResult Create([Bind("CategoryName")] Category category)
         {
             if (ModelState.IsValid)
             {
-                int maxUserId = db.Users.Max(u => u.UserId);
-                user.UserId = maxUserId + 1;
-                user.RoleId = 3;
-                db.Users.Add(user);
+                int maxCategoryId = db.Categories.Max(u => u.CategoryId);
+                category.CategoryId = maxCategoryId + 1;
+                db.Categories.Add(category);
                 db.SaveChanges();
-                return RedirectToAction(nameof(IndexEmployee));
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
@@ -53,20 +50,18 @@ namespace QuanLyBanMyPham.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateEmployee([Bind("Username, Password, FullName, Email, Phone")] User user)
+        public IActionResult CreateEmployee([Bind("CategoryName")] Category category)
         {
             if (ModelState.IsValid)
             {
-                int maxUserId = db.Users.Max(u => u.UserId);
-                user.UserId = maxUserId + 1;
-                user.RoleId = 3;
-                db.Users.Add(user);
+                int maxCategoryId = db.Categories.Max(u => u.CategoryId);
+                category.CategoryId = maxCategoryId + 1;
+                db.Categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction(nameof(IndexEmployee));
             }
             return View();
         }
-
 
         public IActionResult Edit(int? id)
         {
@@ -75,20 +70,20 @@ namespace QuanLyBanMyPham.Controllers
                 return NotFound();
             }
 
-            var employee = db.Users.Find(id);
-            if (employee == null)
+            var category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(category);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("UserId,Username,Password,FullName,Email,Phone,RoleId")] User user)
+        public IActionResult Edit(int id, [Bind("CategoryId,CategoryName")] Category category)
         {
-            if (id != user.UserId)
+            if (id != category.CategoryId)
             {
                 return NotFound();
             }
@@ -97,7 +92,7 @@ namespace QuanLyBanMyPham.Controllers
             {
                 try
                 {
-                    db.Update(user);
+                    db.Update(category);
                     db.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
@@ -107,7 +102,7 @@ namespace QuanLyBanMyPham.Controllers
                 }
             }
 
-            return View(user);
+            return View(category);
         }
         public IActionResult EditEmployee(int? id)
         {
@@ -116,20 +111,20 @@ namespace QuanLyBanMyPham.Controllers
                 return NotFound();
             }
 
-            var employee = db.Users.Find(id);
-            if (employee == null)
+            var category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(category);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditEmployee(int id, [Bind("UserId,Username,Password,FullName,Email,Phone,RoleId")] User user)
+        public IActionResult EditEmployee(int id, [Bind("CategoryId,CategoryName")] Category category)
         {
-            if (id != user.UserId)
+            if (id != category.CategoryId)
             {
                 return NotFound();
             }
@@ -138,7 +133,7 @@ namespace QuanLyBanMyPham.Controllers
             {
                 try
                 {
-                    db.Update(user);
+                    db.Update(category);
                     db.SaveChanges();
                     return RedirectToAction(nameof(IndexEmployee));
                 }
@@ -148,72 +143,79 @@ namespace QuanLyBanMyPham.Controllers
                 }
             }
 
-            return View(user);
+            return View(category);
         }
 
-
-
-        public IActionResult Delete(int ? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null || db.Users == null)
+            if (db.Categories == null)
             {
                 return NotFound();
             }
-            var user = db.Users.Include(u => u.Role).FirstOrDefault(u => u.UserId == id);
-            if (user == null)
+
+            var category = db.Categories.Include(c => c.Products).FirstOrDefault(c => c.CategoryId == id);
+            if (category == null)
             {
                 return NotFound();
             }
-            return View(user);
+
+            return View(category);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            if (db.Users == null)
+            var category = db.Categories.Include(c => c.Products).FirstOrDefault(c => c.CategoryId == id);
+            if (category != null)
             {
-                return Problem("Entity set 'Users' is null.");
-            }
-            var user = db.Users.Find(id);
-            if (user != null)
-            {
-                db.Users.Remove(user);
+                foreach (var product in category.Products)
+                {
+                    product.CategoryId = null; 
+                }
+
+                db.Categories.Remove(category);
                 db.SaveChanges();
             }
+
             return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult DeleteEmployee(int ? id)
+        public IActionResult DeleteEmployee(int id)
         {
-            if (id == null || db.Users == null)
+            if (db.Categories == null)
             {
                 return NotFound();
             }
-            var user = db.Users.Include(u => u.Role).FirstOrDefault(u => u.UserId == id);
-            if (user == null)
+
+            var category = db.Categories.Include(c => c.Products).FirstOrDefault(c => c.CategoryId == id);
+            if (category == null)
             {
                 return NotFound();
             }
-            return View(user);
+
+            return View(category);
         }
 
         [HttpPost, ActionName("DeleteEmployee")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteEmployeeConfirmed(int id)
         {
-            if (db.Users == null)
+            var category = db.Categories.Include(c => c.Products).FirstOrDefault(c => c.CategoryId == id);
+            if (category != null)
             {
-                return Problem("Entity set 'Users' is null.");
-            }
-            var user = db.Users.Find(id);
-            if (user != null)
-            {
-                db.Users.Remove(user);
+                foreach (var product in category.Products)
+                {
+                    product.CategoryId = null;
+                }
+
+                db.Categories.Remove(category);
                 db.SaveChanges();
             }
+
             return RedirectToAction(nameof(IndexEmployee));
         }
+
+
 
     }
 }

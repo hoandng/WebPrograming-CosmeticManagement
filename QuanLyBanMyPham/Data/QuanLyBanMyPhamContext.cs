@@ -39,11 +39,9 @@ public partial class QuanLyBanMyPhamContext : DbContext
         modelBuilder.Entity<Category>(entity =>
         {
             entity.HasKey(e => e.CategoryId).HasName("PK__categori__D54EE9B4E3519ED9");
-
             entity.ToTable("categories");
 
             entity.Property(e => e.CategoryId)
-
                 .ValueGeneratedOnAdd()
                 .HasColumnName("category_id");
             entity.Property(e => e.CategoryName)
@@ -55,7 +53,6 @@ public partial class QuanLyBanMyPhamContext : DbContext
         modelBuilder.Entity<Order>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__orders__465962296371DFDF");
-
             entity.ToTable("orders");
 
             entity.Property(e => e.OrderId)
@@ -71,15 +68,16 @@ public partial class QuanLyBanMyPhamContext : DbContext
                 .HasColumnName("total_amount");
             entity.Property(e => e.UserId).HasColumnName("user_id");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Orders)
+            entity.HasOne(d => d.User)
+                .WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
                 .HasConstraintName("FK__orders__user_id__45F365D3");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
             entity.HasKey(e => e.OrderDetailId).HasName("PK__order_de__3C5A4080B706BC0A");
-
             entity.ToTable("order_details");
 
             entity.Property(e => e.OrderDetailId)
@@ -92,19 +90,22 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
 
-            entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
+            entity.HasOne(d => d.Order)
+                .WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
                 .HasConstraintName("FK__order_det__order__48CFD27E");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
+            entity.HasOne(d => d.Product)
+                .WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
                 .HasConstraintName("FK__order_det__produ__49C3F6B7");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.ProductId).HasName("PK__products__47027DF58063257B");
-
             entity.ToTable("products");
 
             entity.Property(e => e.ProductId)
@@ -121,19 +122,22 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.SupplierId).HasColumnName("supplier_id");
 
-            entity.HasOne(d => d.Category).WithMany(p => p.Products)
+            entity.HasOne(d => d.Category)
+                .WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
+                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
                 .HasConstraintName("FK__products__catego__4222D4EF");
 
-            entity.HasOne(d => d.Supplier).WithMany(p => p.Products)
+            entity.HasOne(d => d.Supplier)
+                .WithMany(p => p.Products)
                 .HasForeignKey(d => d.SupplierId)
+                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
                 .HasConstraintName("FK__products__suppli__4316F928");
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
             entity.HasKey(e => e.RoleId).HasName("PK__roles__760965CC654D6F2F");
-
             entity.ToTable("roles");
 
             entity.HasIndex(e => e.RoleName, "UQ__roles__783254B1D51AC7E9").IsUnique();
@@ -150,7 +154,6 @@ public partial class QuanLyBanMyPhamContext : DbContext
         modelBuilder.Entity<Supplier>(entity =>
         {
             entity.HasKey(e => e.SupplierId).HasName("PK__supplier__6EE594E8C059C1B5");
-
             entity.ToTable("suppliers");
 
             entity.Property(e => e.SupplierId)
@@ -181,7 +184,6 @@ public partial class QuanLyBanMyPhamContext : DbContext
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__users__B9BE370FC797F05D");
-
             entity.ToTable("users");
 
             entity.HasIndex(e => e.Username, "UQ__users__F3DBC572462868DE").IsUnique();
@@ -211,13 +213,16 @@ public partial class QuanLyBanMyPhamContext : DbContext
                 .IsUnicode(true)
                 .HasColumnName("username");
 
-            entity.HasOne(d => d.Role).WithMany(p => p.Users)
+            entity.HasOne(d => d.Role)
+                .WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)
+                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
                 .HasConstraintName("FK__users__role_id__3B75D760");
         });
 
         OnModelCreatingPartial(modelBuilder);
     }
+
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

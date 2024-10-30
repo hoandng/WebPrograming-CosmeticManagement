@@ -1,17 +1,5 @@
-﻿@model IEnumerable<QuanLyBanMyPham.Models.Product>
-
-@{
-    ViewBag.Title = "Danh Sách Sản Phẩm";
-    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
-}
-<h1 style="color: #FF1493">Danh Sách Sản Phẩm</h1>
-
-<a asp-controller="Product" asp-action="CreateEmployee" class="btn btn-primary">
-    Thêm Sản Phẩm
-</a>
-@await Component.InvokeAsync("CategoryEmployee")
-<div id="content">
-<table class="table">
+﻿@model IEnumerable<Product>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Tên Sản Phẩm</th>
@@ -43,20 +31,3 @@
         }
     </tbody>
 </table>
-</table>
-</div>
-</div>
-@section Scripts {
-    <script>
-        $("li").click(function (e) {
-            var categoryId = $(this).attr("id"); 
-            $.ajax({
-                url: "ProductByCategoryIdEmployee",
-                data: { categoryId: categoryId }, 
-                success: function (response) {
-                    $("div#content").html(response);
-                }
-            });
-        });
-    </script>
-}

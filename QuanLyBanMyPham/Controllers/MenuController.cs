@@ -25,7 +25,7 @@ namespace QuanLyBanMyPham.Controllers
             int completedOrders = db.Orders.Count(o => o.Status == "Hoàn thành");
             int pendingOrders = db.Orders.Count(o => o.Status == "Chờ xử lý");
             
-            int canceledOrders = db.Orders.Count(o => o.Status == "Hủy");
+          
 
 
             int totalProducts = db.Products.Count();
@@ -54,7 +54,7 @@ namespace QuanLyBanMyPham.Controllers
                 .Sum(o => o.TotalAmount);
 
             ViewBag.TotalOrders = totalOrders;
-            ViewBag.CanceledOrders = canceledOrders;
+       
             ViewBag.TotalProducts = totalProducts;
             ViewBag.TotalSuppliers = totalSuppliers;
             ViewBag.TotalEmployees = totalEmployees;

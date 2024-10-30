@@ -41,19 +41,58 @@ namespace QuanLyBanMyPham.Controllers
 
             return PartialView("ProducTable", products); 
         }
-
-        public ActionResult IndexEmployee()
+        public IActionResult ProductByCategoryIdEmployee(int categoryId)
         {
-            var product = db.Products.Include(p => p.Category).Include(c => c.Supplier).ToList();
+            var products = db.Products
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .Where(p => p.CategoryId == categoryId)
+                .ToList();
+
+            return PartialView("ProducTableEmployee", products);
+        }
+        public IActionResult ProductByCategoryIdCustomer(int categoryId)
+        {
+            var products = db.Products
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .Where(p => p.CategoryId == categoryId)
+                .ToList();
+
+            return PartialView("ProducTableCustomer", products);
+        }
+
+
+        public ActionResult IndexEmployee(int? categoryId)
+        {
+            var productsQuery = db.Products.Include(p => p.Category).Include(c => c.Supplier).AsQueryable();
+
+            if (categoryId.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.CategoryId == categoryId.Value);
+            }
+
+            var products = productsQuery.ToList();
             ViewBag.Categories = db.Categories.ToList();
             ViewBag.Suppliers = db.Suppliers.ToList();
-            return View(product);
+
+            return View(products);
         }
-        public ActionResult IndexCustomer()
+
+        public ActionResult IndexCustomer(int? categoryId)
         {
-            var product = db.Products.Include(p => p.Category).ToList();
+            var productsQuery = db.Products.Include(p => p.Category).Include(c => c.Supplier).AsQueryable();
+
+            if (categoryId.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.CategoryId == categoryId.Value);
+            }
+
+            var products = productsQuery.ToList();
             ViewBag.Categories = db.Categories.ToList();
-            return View(product);
+            ViewBag.Suppliers = db.Suppliers.ToList();
+
+            return View(products);
         }
 
         public IActionResult Create()
@@ -263,11 +302,21 @@ namespace QuanLyBanMyPham.Controllers
             var product = db.Products.Find(id);
             if (product != null)
             {
+                // Cập nhật các bản ghi order_details để không còn tham chiếu đến sản phẩm này
+                var orderDetails = db.OrderDetails.Where(od => od.ProductId == id).ToList();
+                foreach (var orderDetail in orderDetails)
+                {
+                    orderDetail.ProductId = null; // Hoặc cập nhật đến một sản phẩm khác
+                    db.OrderDetails.Update(orderDetail);
+                }
+
+                // Xóa sản phẩm
                 db.Products.Remove(product);
                 db.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
         }
+
         public IActionResult DeleteEmployee(int? id)
         {
             if (id == null)
