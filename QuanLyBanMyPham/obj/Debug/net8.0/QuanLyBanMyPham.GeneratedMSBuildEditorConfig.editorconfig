@@ -162,10 +162,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsRW1wbG95ZWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/EditCustomer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRWRpdEN1c3RvbWVyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Order/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -280,6 +276,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/LeftMenuEmployee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExlZnRNZW51RW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/TopNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFRvcE5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/backend/QuanLyBanMyPham/QuanLyBanMyPham/QuanLyBanMyPham/Views/Shared/_ValidationScriptsPartial.cshtml]

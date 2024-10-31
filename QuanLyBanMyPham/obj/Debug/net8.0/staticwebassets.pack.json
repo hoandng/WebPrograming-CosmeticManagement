@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Images\\daugoiSunsilk.jpg"
     },
     {
+      "Id": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\Images\\default.png",
+      "PackagePath": "staticwebassets\\Images\\default.png"
+    },
+    {
       "Id": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\Images\\kemchongnangAnessa.jpg",
       "PackagePath": "staticwebassets\\Images\\kemchongnangAnessa.jpg"
     },
@@ -49,6 +53,10 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
       "Id": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\css\\menu.css",
       "PackagePath": "staticwebassets\\css\\menu.css"
     },
@@ -75,6 +83,10 @@
     {
       "Id": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\js\\menu.js",
       "PackagePath": "staticwebassets\\js\\menu.js"
+    },
+    {
+      "Id": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts.js"
     },
     {
       "Id": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\js\\site.js",

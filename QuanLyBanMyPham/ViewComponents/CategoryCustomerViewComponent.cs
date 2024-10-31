@@ -16,12 +16,12 @@ namespace QuanLyBanMyPham.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            // Lấy danh sách các loại sản phẩm từ cơ sở dữ liệu
+            
             var categories = await _context.Categories
-                .Include(c => c.Products) // Nếu bạn muốn bao gồm sản phẩm liên quan
+                .Include(c => c.Products) 
                 .ToListAsync();
 
-            return View("RenderCategoryCustomer", categories); // Trả về view với danh sách categories
+            return View("RenderCategoryCustomer", categories); 
         }
     }
 }

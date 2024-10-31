@@ -1,6 +1,8 @@
 ﻿<link rel="stylesheet" href="~/css/login.css" />
 @model User
-
+@{
+    ViewData["Title"] = "THT BEAUTY SHOP";
+}
 <div class="login-container">
     <form method="post" id="login-form">
         <div class="form-group">
@@ -16,7 +18,9 @@
             </button>
         </div>
 
-        <div class="alert alert-danger" id="login-error" style="display:none;"></div>
+        <div class="alert alert-danger" id="login-error" style="display:@(ViewBag.ErrorMessage != null ? "block" : "none");">
+            @ViewBag.ErrorMessage
+        </div>
 
         <button type="submit" class="btn btn-primary btn-login">Đăng nhập</button>
     </form>

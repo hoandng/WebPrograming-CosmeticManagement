@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x3otWugdoLbbVv4IYve0bNeQJZwy1KZY6lbA1psloCs=",
+  "Hash": "2X1n3vC5lyPQvHv8qtXByIEFGv9HoaJm+36S8W6MtPQ=",
   "Source": "QuanLyBanMyPham",
   "BasePath": "_content/QuanLyBanMyPham",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\css\\main.css",
+      "SourceId": "QuanLyBanMyPham",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\",
+      "BasePath": "_content/QuanLyBanMyPham",
+      "RelativePath": "css/main.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\main.css"
     },
     {
       "Identity": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\css\\menu.css",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\daugoiSunsilk.jpg"
+    },
+    {
+      "Identity": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\Images\\default.png",
+      "SourceId": "QuanLyBanMyPham",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\",
+      "BasePath": "_content/QuanLyBanMyPham",
+      "RelativePath": "Images/default.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\default.png"
     },
     {
       "Identity": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\Images\\kemchongnangAnessa.jpg",
@@ -395,6 +433,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\menu.js"
+    },
+    {
+      "Identity": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\js\\scripts.js",
+      "SourceId": "QuanLyBanMyPham",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\",
+      "BasePath": "_content/QuanLyBanMyPham",
+      "RelativePath": "js/scripts.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\scripts.js"
     },
     {
       "Identity": "D:\\backend\\QuanLyBanMyPham\\QuanLyBanMyPham\\QuanLyBanMyPham\\wwwroot\\js\\site.js",

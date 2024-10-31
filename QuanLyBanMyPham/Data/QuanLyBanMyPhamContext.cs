@@ -71,7 +71,7 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.HasOne(d => d.User)
                 .WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
+                .OnDelete(DeleteBehavior.SetNull) 
                 .HasConstraintName("FK__orders__user_id__45F365D3");
         });
 
@@ -93,13 +93,13 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.HasOne(d => d.Order)
                 .WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
-                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
+                .OnDelete(DeleteBehavior.SetNull) 
                 .HasConstraintName("FK__order_det__order__48CFD27E");
 
             entity.HasOne(d => d.Product)
                 .WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
-                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
+                .OnDelete(DeleteBehavior.SetNull) 
                 .HasConstraintName("FK__order_det__produ__49C3F6B7");
         });
 
@@ -125,13 +125,13 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.HasOne(d => d.Category)
                 .WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
-                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
+                .OnDelete(DeleteBehavior.SetNull) 
                 .HasConstraintName("FK__products__catego__4222D4EF");
 
             entity.HasOne(d => d.Supplier)
                 .WithMany(p => p.Products)
                 .HasForeignKey(d => d.SupplierId)
-                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
+                .OnDelete(DeleteBehavior.SetNull) 
                 .HasConstraintName("FK__products__suppli__4316F928");
         });
 
@@ -216,7 +216,7 @@ public partial class QuanLyBanMyPhamContext : DbContext
             entity.HasOne(d => d.Role)
                 .WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)
-                .OnDelete(DeleteBehavior.SetNull) // Đặt thuộc tính khóa ngoại thành NULL khi xóa
+                .OnDelete(DeleteBehavior.SetNull) 
                 .HasConstraintName("FK__users__role_id__3B75D760");
         });
 

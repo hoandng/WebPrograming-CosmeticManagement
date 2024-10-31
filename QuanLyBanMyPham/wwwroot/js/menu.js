@@ -1,6 +1,4 @@
-﻿// menu.js
-
-// Khởi tạo biểu đồ tròn
+﻿
 const ctx = document.getElementById('orderStatusChart').getContext('2d');
 const orderStatusChart = new Chart(ctx, {
     type: 'doughnut',

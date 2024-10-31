@@ -94,7 +94,7 @@ namespace QuanLyBanMyPham.Controllers
 
             return View(products);
         }
-
+ 
         public IActionResult Create()
         {
             var categories = db.Categories.Select(c => new SelectListItem
@@ -118,23 +118,49 @@ namespace QuanLyBanMyPham.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("ProductName,Price,Quantity,CategoryId,SupplierId")] Product product)
+        public async Task<IActionResult> Create(Product product, IFormFile? imageFile)
         {
             if (ModelState.IsValid)
             {
-                int maxProductId = db.Products.Max(u => u.ProductId);
+               
+                int maxProductId = db.Products.Any() ? db.Products.Max(u => u.ProductId) : 0;
                 product.ProductId = maxProductId + 1;
+
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", imageFile.FileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+                    product.ImagePath = imageFile.FileName; 
+                }
+                else
+                {
+                    product.ImagePath = "default.png"; 
+                }
+
                 db.Products.Add(product);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
+           
+            ViewBag.CategoryId = db.Categories.Select(c => new SelectListItem
+            {
+                Text = c.CategoryName,
+                Value = c.CategoryId.ToString()
+            }).ToList();
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName");
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName");
+            ViewBag.SupplierId = db.Suppliers.Select(s => new SelectListItem
+            {
+                Text = s.SupplierName,
+                Value = s.SupplierId.ToString()
+            }).ToList();
 
             return View(product);
         }
+
         public IActionResult CreateEmployee()
         {
             var categories = db.Categories.Select(c => new SelectListItem
@@ -158,23 +184,49 @@ namespace QuanLyBanMyPham.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateEmployee([Bind("ProductName,Price,Quantity,CategoryId,SupplierId")] Product product)
+        public async Task<IActionResult> CreateEmployee(Product product, IFormFile? imageFile)
         {
             if (ModelState.IsValid)
             {
-                int maxProductId = db.Products.Max(u => u.ProductId);
+                
+                int maxProductId = db.Products.Any() ? db.Products.Max(u => u.ProductId) : 0;
                 product.ProductId = maxProductId + 1;
+
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", imageFile.FileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+                    product.ImagePath = imageFile.FileName; 
+                }
+                else
+                {
+                    product.ImagePath = "default.png"; 
+                }
+
                 db.Products.Add(product);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexEmployee));
             }
 
+            
+            ViewBag.CategoryId = db.Categories.Select(c => new SelectListItem
+            {
+                Text = c.CategoryName,
+                Value = c.CategoryId.ToString()
+            }).ToList();
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName");
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName");
+            ViewBag.SupplierId = db.Suppliers.Select(s => new SelectListItem
+            {
+                Text = s.SupplierName,
+                Value = s.SupplierId.ToString()
+            }).ToList();
 
             return View(product);
         }
+
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -188,7 +240,6 @@ namespace QuanLyBanMyPham.Controllers
                 return NotFound();
             }
 
-
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
 
@@ -197,7 +248,7 @@ namespace QuanLyBanMyPham.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("ProductId,ProductName,Price,Quantity,CategoryId,SupplierId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Price,Quantity,CategoryId,SupplierId,ImagePath")] Product product, IFormFile? imageFile)
         {
             if (id != product.ProductId)
             {
@@ -208,22 +259,37 @@ namespace QuanLyBanMyPham.Controllers
             {
                 try
                 {
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", imageFile.FileName);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(stream);
+                        }
+                        product.ImagePath = imageFile.FileName;
+                    }
+                    else
+                    {
+                        product.ImagePath = db.Products.AsNoTracking().FirstOrDefault(p => p.ProductId == id)?.ImagePath;
+                    }
+
+
                     db.Update(product);
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    ModelState.AddModelError("", "Unable to save changes. Try again.");
+                    ModelState.AddModelError("", "Không thể lưu thay đổi. Vui lòng thử lại.");
                 }
             }
-
 
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
 
             return View(product);
         }
+
         public IActionResult EditEmployee(int? id)
         {
             if (id == null)
@@ -237,7 +303,6 @@ namespace QuanLyBanMyPham.Controllers
                 return NotFound();
             }
 
-
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
 
@@ -246,7 +311,7 @@ namespace QuanLyBanMyPham.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditEmployee(int id, [Bind("ProductId,ProductName,Price,Quantity,CategoryId,SupplierId")] Product product)
+        public async Task<IActionResult> EditEmployee(int id, [Bind("ProductId,ProductName,Price,Quantity,CategoryId,SupplierId,ImagePath")] Product product, IFormFile? imageFile)
         {
             if (id != product.ProductId)
             {
@@ -257,23 +322,36 @@ namespace QuanLyBanMyPham.Controllers
             {
                 try
                 {
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", imageFile.FileName);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(stream);
+                        }
+                        product.ImagePath = imageFile.FileName;
+                    }
+                    else
+                    {
+                        product.ImagePath = db.Products.AsNoTracking().FirstOrDefault(p => p.ProductId == id)?.ImagePath;
+                    }
+
+
                     db.Update(product);
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
                     return RedirectToAction(nameof(IndexEmployee));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    ModelState.AddModelError("", "Unable to save changes. Try again.");
+                    ModelState.AddModelError("", "Không thể lưu thay đổi. Vui lòng thử lại.");
                 }
             }
-
 
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
 
             return View(product);
         }
-
 
         public IActionResult Delete(int? id)
         {
@@ -302,15 +380,15 @@ namespace QuanLyBanMyPham.Controllers
             var product = db.Products.Find(id);
             if (product != null)
             {
-                // Cập nhật các bản ghi order_details để không còn tham chiếu đến sản phẩm này
+              
                 var orderDetails = db.OrderDetails.Where(od => od.ProductId == id).ToList();
                 foreach (var orderDetail in orderDetails)
                 {
-                    orderDetail.ProductId = null; // Hoặc cập nhật đến một sản phẩm khác
+                    orderDetail.ProductId = null; 
                     db.OrderDetails.Update(orderDetail);
                 }
 
-                // Xóa sản phẩm
+               
                 db.Products.Remove(product);
                 db.SaveChanges();
             }
