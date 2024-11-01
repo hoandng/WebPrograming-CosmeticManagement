@@ -1,0 +1,66 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.Order>
+
+@{
+    ViewBag.Title = "Danh Sách Hóa Đơn";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="color: #FF1493">Danh Sách Hóa Đơn</h1>
+@await Component.InvokeAsync("Order")
+<div class="table-responsive" >
+    <div id="content">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Khách hàng</th>
+                <th>Ngày xuất hóa đơn</th>
+                <th>Trạng thái</th>
+                <th>Chức Năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr id="order-@order.OrderId">
+                    <td>@order.User.Username</td>
+                    <td>@order.OrderDate</td>
+                    <td class="order-status">@order.Status</td>
+                    <td>
+                        <a asp-action="Detail" asp-route-id="@order.OrderId" class="btn btn-sm btn-success">
+                            <i class="fas fa-info-circle"></i> Chi Tiết
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@order.OrderId" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash-alt"></i> Xóa
+                        </a>
+                            @if (order.Status == "Chờ xử lý")
+                            {
+                                <form asp-action="AdminConfirmOrder" method="post" style="display:inline;">
+                                    <input type="hidden" name="orderId" value="@order.OrderId" />
+                                    <button type="submit" class="btn btn-sm btn-warning text-white">
+                                        <i class="fas fa-check-circle"></i> Xác nhận
+                                    </button>
+                                </form>
+                            }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $("li").click(function (e) {
+            var id = $(this).attr("id");
+            $.ajax({
+                url: "OrderByStatus",
+                data: { mid: id },
+                success: function (response) {
+                    $("div#content").html(response);
+                }
+            });
+        });
+    </script>
+}
+
+

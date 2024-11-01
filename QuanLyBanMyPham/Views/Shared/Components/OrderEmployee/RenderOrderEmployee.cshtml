@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Order>
+
+<ul class="nav">
+    @if (Model.Any(status => status.Status == "Hoàn thành"))
+    {
+        <li class="nav-item">
+            <a asp-controller="Order" asp-action="IndexEmployee"
+               asp-route-mid="Hoàn thành" class="nav-link">
+                <span>Hoàn thành</span>
+            </a>
+        </li>
+    }
+
+    @if (Model.Any(status => status.Status == "Chờ xử lý"))
+    {
+        <li class="nav-item">
+            <a asp-controller="Order" asp-action="IndexEmployee"
+               asp-route-mid="Chờ xử lý" class="nav-link">
+                <span>Chờ xử lý</span>
+            </a>
+        </li>
+    }
+</ul>

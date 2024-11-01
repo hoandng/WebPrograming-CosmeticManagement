@@ -1,0 +1,42 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.Category>
+
+@{
+    ViewBag.Title = "Danh Sách Loại Hàng";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="color: #FF1493">Danh Sách Loại Hàng</h1>
+
+<a asp-controller="Category" asp-action="Create" class="btn-index btn btn-primary">
+    Thêm Loại Hàng
+</a>
+<div class="table-responsive">
+
+    <table class="table table-bordered">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Loại Hàng</th>
+                    <th>Chức Năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>@category.CategoryName</td>
+                      
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@category.CategoryId" class="btn btn-sm btn-success">
+                                <i class="fas fa-edit"></i> Chỉnh sửa
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@category.CategoryId" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash-alt"></i> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </table>
+</div>

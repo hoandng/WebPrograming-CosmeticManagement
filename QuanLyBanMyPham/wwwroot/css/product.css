@@ -1,0 +1,21 @@
+﻿
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img:hover {
+    transform: scale(1.05);
+}
+
+button:hover {
+    background-color: #e6007e;
+}
+
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

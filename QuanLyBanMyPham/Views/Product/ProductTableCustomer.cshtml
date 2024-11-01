@@ -1,0 +1,56 @@
+﻿<link rel="stylesheet" href="~/css/product.css" />
+@model IEnumerable<Product>
+<div class="product-list" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
+    @foreach (var product in Model)
+    {
+        <div class="product-card" style="flex: 0 1 calc(25% - 20px); border: 1px solid #ddd; border-radius: 8px; padding: 15px; text-align: center; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
+            <img src="@Url.Content($"~/Images/{product.ImagePath}")" alt="@product.ProductName" style="width: 100%; height: auto; max-width: 200px; border-radius: 5px; margin-bottom: 10px; transition: transform 0.3s;" />
+            <h3 style="font-size: 1.2em; margin: 10px 0;">@product.ProductName</h3>
+            <p style="color: #FF1493; margin: 5px 0; font-weight: bold;">Giá: @product.Price.ToString("C")</p>
+            <p style="margin: 5px 0;">Danh Mục: @product.Category.CategoryName</p>
+
+            <p>Số lượng: <input type="number" id="quantity-@product.ProductId" value="1" min="1" style="width: 50px;" /></p>
+
+            <button onclick="purchaseProduct(@product.ProductId)" style="background-color: #FF1493; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-top: auto; transition: background-color 0.3s;">
+                Mua Hàng
+            </button>
+        </div>
+    }
+</div>
+<ul class="pagination">
+    @for (int i = 1; i <= ViewBag.pageNum; i++)
+    {
+        <li class="page-item" page="@i"
+        @(ViewBag.categoryId != null ? "categoryId = " + ViewBag.categoryId : "")
+        @(ViewBag.keyword != null ? "keyword = " + ViewBag.keyword : "")>
+            <a class="page-link">@i</a>
+        </li>
+    }
+</ul>
+@section Scripts {
+    <script>
+        function purchaseProduct(productId) {
+            var quantity = $("#quantity-" + productId).val();
+            console.log("Product ID: " + productId);
+            console.log("Quantity: " + quantity);
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("CreateOrder", "Product")",
+                data: { productId: productId, quantity: quantity },
+                success: function (response) {
+                    if (response.success) {
+                        alert("Đơn hàng đã được tạo thành công!");
+                    } else {
+                        alert("Có lỗi: " + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error: ", xhr.responseText);
+                    alert("Có lỗi xảy ra khi thực hiện yêu cầu: " + error);
+                    console.log("Status:", status);
+                    console.log("XHR:", xhr);
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.Category>
+<div class="nav-categories">
+    <ul class="nav nav-pills">
+        @foreach (var category in Model)
+        {
+            <li class="nav-item" style="display: inline; margin-right: 10px;">
+                <a asp-controller="Product" asp-action="Index"
+                   asp-route-categoryId="@category.CategoryId" class="nav-link">
+                    @category.CategoryName
+                </a>
+            </li>
+        }
+    </ul>
+</div>

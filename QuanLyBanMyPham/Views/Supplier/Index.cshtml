@@ -1,0 +1,52 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.Supplier>
+
+@{
+    ViewBag.Title = "Danh Sách Nhà Cung Cấp";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 style="color: #FF1493">Danh Sách Nhà Cung Cấp</h1>
+<a asp-controller="Supplier" asp-action="Create" class="btn-index btn btn-primary">
+    Thêm Nhà Cung Cấp
+</a>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+    
+            <th>Tên nhà cung cấp</th>
+            <th>Tên liên lạc</th>
+            <th>Điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Email</th>
+            <th>Chức Năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model)
+        {
+            <tr>
+      
+                <td>@supplier.SupplierName</td>
+                <td>@supplier.ContactName</td>
+                <td>@supplier.Phone</td>
+                <td>@supplier.Address</td>
+                <td>@supplier.Email</td>
+              
+                <td>
+                    <a asp-action="Edit" asp-route-id="@supplier.SupplierId" class="btn btn-sm btn-success">
+                        <i class="fas fa-edit"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@supplier.SupplierId" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+        </table>
+    </div>

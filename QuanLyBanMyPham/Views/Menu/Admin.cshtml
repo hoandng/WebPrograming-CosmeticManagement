@@ -1,0 +1,60 @@
+﻿<link rel="stylesheet" href="~/css/menu.css" />
+@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style="color: #FF3399; text-align: center;">Thống Kê</h1>
+
+
+<div class="container">
+    <div class="stat-grid">
+        <div class="stat-box">
+            <h4>Tổng nhân viên</h4>
+            <p class="stat-value">@ViewBag.TotalEmployees</p>
+        </div>
+        <div class="stat-box">
+            <h4>Tổng khách hàng</h4>
+            <p class="stat-value">@ViewBag.TotalCustomers</p>
+        </div>
+        <div class="stat-box">
+            <h4>Tổng đơn hàng</h4>
+            <p class="stat-value">@ViewBag.TotalOrders</p>
+        </div>
+        <div class="stat-box">
+            <h4>Tổng sản phẩm</h4>
+            <p class="stat-value">@ViewBag.TotalProducts</p>
+        </div>
+        <div class="stat-box">
+            <h4>Tổng nhà cung cấp</h4>
+            <p class="stat-value">@ViewBag.TotalSuppliers</p>
+        </div>
+        <div class="stat-box">
+            <h4>Doanh thu hôm nay</h4>
+            <p class="stat-value">@ViewBag.TotalRevenueToday.ToString("C")</p>
+        </div>
+        <div class="stat-box">
+            <h4>Doanh thu tháng này</h4>
+            <p class="stat-value">@ViewBag.TotalRevenueThisMonth.ToString("C")</p>
+        </div>
+        <div class="stat-box">
+            <h4>Doanh thu năm này</h4>
+            <p class="stat-value">@ViewBag.TotalRevenueThisYear.ToString("C")</p>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h1 style="color: #FF3399">Tỷ Lệ Đơn Hàng Theo Trạng Thái</h1>
+        <canvas id="orderStatusChart" width="150" height="150"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const completedOrders = @ViewBag.CompletedOrders;
+    const pendingOrders = @ViewBag.PendingOrders;
+
+</script>
+
+<script src="~/js/menu.js"></script>

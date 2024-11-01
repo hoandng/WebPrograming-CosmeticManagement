@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyBanMyPham", "QuanLyBanMyPham.csproj", "{13E46BF3-E170-47EF-A32D-2A1E2C4E01FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuanLyBanMyPham", "QuanLyBanMyPham.csproj", "{13E46BF3-E170-47EF-A32D-2A1E2C4E01FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D0C0822-CD71-438B-B13B-FA7C5AB57D9B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

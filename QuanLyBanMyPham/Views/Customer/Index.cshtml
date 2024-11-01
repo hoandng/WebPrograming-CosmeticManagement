@@ -1,0 +1,47 @@
+﻿@model IEnumerable<QuanLyBanMyPham.Models.User>
+
+@{
+    ViewBag.Title = "Danh Sách Khách Hàng";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 style="color: #FF1493">Danh Sách Khách Hàng</h1>
+
+<a asp-controller="Customer" asp-action="Create" class="btn-index btn btn-primary">Thêm Khách Hàng</a>
+<div class="table-responsive">
+
+    <table class="table table-bordered">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Người Dùng</th>
+            <th>Mật Khẩu</th>
+            <th>Họ Và Tên</th>
+            <th>Email</th>
+            <th>Số Điện Thoại</th>
+            <th>Chức Năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Password</td>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.UserId" class="btn btn-sm btn-success">
+                        <i class="fas fa-edit"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@user.UserId" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+</table>
+</div>

@@ -1,0 +1,36 @@
+﻿@model User
+@{
+    ViewBag.Title = "Xóa Khách Hàng";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+
+}
+<h1 style="color: #FF1493">Xóa Khách Hàng</h1>
+<div class="ms-2 mx-2">
+
+    <div class="alert alert-warning">
+        <strong>Cảnh báo!</strong> Bạn có chắc chắn muốn xóa khách hàng này?
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Họ Và Tên </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class="col-sm-2">Email </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Số Điện Thoại
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteEmployee" method="post">
+        <input type="hidden" asp-for="@Model.UserId" />
+        <input type="submit" value="Xác Nhân Xóa" class="btn btn-danger" />
+        <a asp-action="IndexEmployee" class="btn btn-secondary">Trở Về</a>
+    </form>
+</div>

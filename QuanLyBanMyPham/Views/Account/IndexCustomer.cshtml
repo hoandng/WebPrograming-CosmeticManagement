@@ -1,0 +1,18 @@
+﻿@model QuanLyBanMyPham.Models.User
+
+@{
+    ViewBag.Title = "Thông Tin Tài Khoản";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<h1 style="color: #FF1493">Thông Tin Tài Khoản Khách Hàng</h1>
+
+<div>
+    <p><strong>Tên Người Dùng:</strong> @Model.Username</p>
+    <p><strong>Họ Và Tên:</strong> @Model.FullName</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Số Điện Thoại:</strong> @Model.Phone</p>
+</div>
+<a asp-controller="Account" asp-action="EditUserCustomer" class="btn btn-primary mt-3">Chỉnh Sửa</a>
+<a asp-controller="Login" asp-action="Index" class="btn btn-primary mt-3">Đăng Xuất</a>
+

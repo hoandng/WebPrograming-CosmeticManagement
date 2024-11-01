@@ -1,0 +1,29 @@
+﻿<link rel="stylesheet" href="~/css/login.css" />
+@model User
+@{
+    ViewData["Title"] = "THT BEAUTY SHOP";
+}
+<div class="login-container">
+    <form method="post" id="login-form">
+        <div class="form-group">
+            <input asp-for="Username" class="form-control" placeholder="Tên Đăng Nhập" autocomplete="off" />
+            <span class="text-danger" id="username-error" style="display:none;">Vui lòng nhập tên người dùng</span>
+        </div>
+
+        <div class="form-group password-group">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Mật khẩu" autocomplete="new-password" />
+            <span class="text-danger" id="password-error" style="display:none;">Vui lòng nhập mật khẩu</span>
+            <button type="button" class="btn btn-link toggle-password" id="toggle-password">
+                <i class="fa fa-eye"></i>
+            </button>
+        </div>
+
+        <div class="alert alert-danger" id="login-error" style="display:@(ViewBag.ErrorMessage != null ? "block" : "none");">
+            @ViewBag.ErrorMessage
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-login">Đăng nhập</button>
+    </form>
+</div>
+
+<script src="~/js/login.js"></script>
