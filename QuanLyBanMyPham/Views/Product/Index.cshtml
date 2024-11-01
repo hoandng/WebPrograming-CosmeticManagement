@@ -11,39 +11,38 @@
 </a>
 @await Component.InvokeAsync("Category")
 <div id="content">
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tên Sản Phẩm</th>
-            <th>Giá</th>
-            <th>Số Lượng</th>
-            <th>Danh Mục</th>
-            <th>Nhà Cung Cấp</th>
-            <th>Chức Năng</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@product.ProductName</td>
-                <td>@product.Price</td>
-                <td>@product.Quantity</td>
-                <td>@(product.Category?.CategoryName ?? "")</td>
-                <td>@(product.Supplier?.SupplierName ?? "")</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm btn-success">
-                        <i class="fas fa-edit"></i> Chỉnh sửa
-                    </a>
-                    <a asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-sm btn-danger">
-                        <i class="fas fa-trash-alt"></i> Xóa
-                    </a>
-                </td>
+                <th>Tên Sản Phẩm</th>
+                <th>Giá</th>
+                <th>Số Lượng</th>
+                <th>Danh Mục</th>
+                <th>Nhà Cung Cấp</th>
+                <th>Chức Năng</th>
             </tr>
-        }
-    </tbody>
-</table>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductName</td>
+                    <td>@product.Price</td>
+                    <td>@product.Quantity</td>
+                    <td>@(product.Category?.CategoryName ?? "")</td>
+                    <td>@(product.Supplier?.SupplierName ?? "")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm btn-success">
+                            <i class="fas fa-edit"></i> Chỉnh sửa
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash-alt"></i> Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 </div>
 @section Scripts {
@@ -59,6 +58,7 @@
                 }
             });
         });
+
     </script>
 }
 

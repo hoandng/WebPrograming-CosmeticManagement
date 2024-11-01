@@ -1,10 +1,5 @@
 ﻿<link rel="stylesheet" href="~/css/product.css" />
-@{
-    ViewBag.Title = "Danh Sách Sản Phẩm";
-    Layout = "~/Views/Shared/CustomerLayout.cshtml";
-}
-<h1 style="color: #FF1493">Danh Sách Sản Phẩm</h1>
-
+@model IEnumerable<Product>
 <div class="product-list" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
     @foreach (var product in Model)
     {
@@ -22,6 +17,16 @@
         </div>
     }
 </div>
+<ul class="pagination">
+    @for (int i = 1; i <= ViewBag.pageNum; i++)
+    {
+        <li class="page-item" page="@i"
+        @(ViewBag.categoryId != null ? "categoryId = " + ViewBag.categoryId : "")
+        @(ViewBag.keyword != null ? "keyword = " + ViewBag.keyword : "")>
+            <a class="page-link">@i</a>
+        </li>
+    }
+</ul>
 @section Scripts {
     <script>
         function purchaseProduct(productId) {

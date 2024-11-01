@@ -11,6 +11,7 @@ namespace QuanLyBanMyPham.Controllers
     public class ProductController : Controller
     {
         private QuanLyBanMyPhamContext db;
+        private int pageSize = 4;
         public ProductController(QuanLyBanMyPhamContext context)
         {
             db = context;
@@ -51,7 +52,7 @@ namespace QuanLyBanMyPham.Controllers
 
             return PartialView("ProducTableEmployee", products);
         }
-        public IActionResult ProductByCategoryIdCustomer(int categoryId)
+        /*public IActionResult ProductByCategoryIdCustomer(int? categoryId)
         {
             var products = db.Products
                 .Include(p => p.Category)
@@ -60,7 +61,7 @@ namespace QuanLyBanMyPham.Controllers
                 .ToList();
 
             return PartialView("ProducTableCustomer", products);
-        }
+        }*/
 
 
         public ActionResult IndexEmployee(int? categoryId)
@@ -81,7 +82,7 @@ namespace QuanLyBanMyPham.Controllers
 
         public ActionResult IndexCustomer(int? categoryId)
         {
-            var productsQuery = db.Products.Include(p => p.Category).Include(c => c.Supplier).AsQueryable();
+            /*var productsQuery = db.Products.Include(p => p.Category).Include(c => c.Supplier).AsQueryable();
 
             if (categoryId.HasValue)
             {
@@ -90,11 +91,57 @@ namespace QuanLyBanMyPham.Controllers
 
             var products = productsQuery.ToList();
             ViewBag.Categories = db.Categories.ToList();
-            ViewBag.Suppliers = db.Suppliers.ToList();
-
-            return View(products);
+            ViewBag.Suppliers = db.Suppliers.ToList();*/
+            var products = (IQueryable<Product>)db.Products.Include(p => p.Category).Include(c => c.Supplier);
+            if(categoryId != null)
+            {
+                products = products.Where(p => p.CategoryId == categoryId);
+            }
+            int pageNum = (int)Math.Ceiling(products.Count() / (float)pageSize);
+            ViewBag.pageNum = pageNum;
+            var result = products.Take(pageSize).ToList();
+            return View(result);
         }
- 
+        public IActionResult ProductFilter(int? categoryId, string? keyword, int? pageIndex)
+        {
+            // Lấy toàn bộ learners trong dbset chuyển về IQueryable< Product > để query
+            var products = (IQueryable<Product>)db.Products;
+
+            // Lấy chỉ số trang, nếu chỉ số trang null thì gán ngầm định bằng 1
+            int page = (int)(pageIndex == null || pageIndex <= 0 ? 1 : pageIndex);
+
+            if (categoryId != null)
+            {
+                // Lọc
+                products = products.Include(p => p.Category).Include(p => p.Supplier).Where(p => p.CategoryId == categoryId);
+
+                // Gửi mid về view để ghi lại trên nav-phân trang
+                ViewBag.categoryId = categoryId;
+            }
+
+            // Nếu có keyword thì tìm kiếm theo tên
+            if (keyword != null)
+            {
+                // Tìm kiếm
+                products = products.Where( l => l.ProductName.ToLower().Contains(keyword.ToLower()) );
+
+                // Gửi keyword về view để ghi lại trên nav-phân trang
+                ViewBag.keyword = keyword;
+            }
+
+            // Tính số trang
+            int pageNum = (int)Math.Ceiling(products.Count() / (float)pageSize);
+
+            // Gửi số trang về view để hiển thị nav-trang
+            ViewBag.pageNum = pageNum;
+
+            // Chọn dữ liệu trong trang hiện tại
+            var result = products.Skip(pageSize * (page - 1))
+                                 .Take(pageSize)
+                                 .Include(p => p.Category).Include(c => c.Supplier);
+
+            return PartialView("ProductTableCustomer", result);
+        }
         public IActionResult Create()
         {
             var categories = db.Categories.Select(c => new SelectListItem
