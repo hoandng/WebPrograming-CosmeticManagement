@@ -25,7 +25,9 @@
     min-height: 100vh;
     overflow-y: auto;
 }
-
+h1{
+    text-align: center;
+}
 .sb-sidenav .nav-link {
     padding: 12px 20px;
     color: #ffffff;

@@ -17,7 +17,7 @@ namespace QuanLyBanMyPham.Controllers
         {
             db = context;
         }
-        public ActionResult Index(string mid)
+        public ActionResult Index(string mid, DateOnly? startDate, DateOnly? endDate)
         {
 
             var orders = db.Orders
@@ -29,7 +29,14 @@ namespace QuanLyBanMyPham.Controllers
                 orders = orders.Where(l => l.Status == mid).ToList();
             }
 
-
+            if(startDate != null)
+            {
+                orders = orders.Where(o => o.OrderDate >= startDate.Value).ToList();
+            }
+            if (startDate != null)
+            {
+                orders = orders.Where(o => o.OrderDate <= endDate.Value).ToList();
+            }
             return View(orders);
         }
 

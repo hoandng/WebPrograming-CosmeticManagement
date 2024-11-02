@@ -8,6 +8,15 @@
 <h1 style="color: #FF1493">Danh Sách Hóa Đơn</h1>
 @await Component.InvokeAsync("Order")
 <div class="table-responsive" >
+    <form asp-controller="Order" asp-action="Index" method="get">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate">
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate">
+
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </form>
     <div id="content">
     <table class="table table-bordered">
         <thead>
