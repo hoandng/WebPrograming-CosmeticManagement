@@ -23,22 +23,34 @@ namespace QuanLyBanMyPham.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Username, Password, FullName, Email, Phone")] User user)
         {
             if (ModelState.IsValid)
             {
+  
+                bool usernameExists = db.Users.Any(u => u.Username == user.Username);
+                if (usernameExists)
+                {
+                    ModelState.AddModelError("Username", "Tên người dùng đã tồn tại. Vui lòng chọn tên khác.");
+                    return View(user);
+                }
+
+          
                 int maxUserId = db.Users.Max(u => u.UserId);
                 user.UserId = maxUserId + 1;
                 user.RoleId = 2;
+
+               
                 db.Users.Add(user);
                 db.SaveChanges();
+
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(user); 
         }
+
 
         public IActionResult Edit(int? id)
         {
