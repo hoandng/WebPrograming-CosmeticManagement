@@ -166,7 +166,6 @@ namespace QuanLyBanMyPham.Controllers
             }
             return View(user);
         }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
@@ -175,14 +174,32 @@ namespace QuanLyBanMyPham.Controllers
             {
                 return Problem("Entity set 'Users' is null.");
             }
-            var user = db.Users.Find(id);
+
+            var user = db.Users
+                         .Include(u => u.Orders)
+                         .ThenInclude(o => o.OrderDetails)
+                         .FirstOrDefault(u => u.UserId == id);
+
             if (user != null)
             {
+             
+                foreach (var order in user.Orders)
+                {
+                    db.OrderDetails.RemoveRange(order.OrderDetails);
+                }
+
+              
+                db.Orders.RemoveRange(user.Orders);
+
+                
                 db.Users.Remove(user);
+
                 db.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
         }
+
+
 
         public IActionResult DeleteEmployee(int ? id)
         {
@@ -206,10 +223,26 @@ namespace QuanLyBanMyPham.Controllers
             {
                 return Problem("Entity set 'Users' is null.");
             }
-            var user = db.Users.Find(id);
+
+            var user = db.Users
+                         .Include(u => u.Orders)
+                         .ThenInclude(o => o.OrderDetails)
+                         .FirstOrDefault(u => u.UserId == id);
+
             if (user != null)
             {
+
+                foreach (var order in user.Orders)
+                {
+                    db.OrderDetails.RemoveRange(order.OrderDetails);
+                }
+
+
+                db.Orders.RemoveRange(user.Orders);
+
+
                 db.Users.Remove(user);
+
                 db.SaveChanges();
             }
             return RedirectToAction(nameof(IndexEmployee));

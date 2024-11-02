@@ -170,14 +170,24 @@ namespace QuanLyBanMyPham.Controllers
             {
                 return Problem("Entity set 'Supplier' is null.");
             }
-            var supplier = db.Suppliers.Find(id);
+
+            var supplier = db.Suppliers.Include(s => s.Products).FirstOrDefault(s => s.SupplierId == id);
+
             if (supplier != null)
             {
+            
+                foreach (var product in supplier.Products)
+                {
+                    product.SupplierId = null; 
+                }
+
                 db.Suppliers.Remove(supplier);
                 db.SaveChanges();
             }
+
             return RedirectToAction(nameof(Index));
         }
+
         public IActionResult DeleteEmployee(int id)
         {
             if (id == null || db.Suppliers == null)
@@ -194,18 +204,28 @@ namespace QuanLyBanMyPham.Controllers
 
         [HttpPost, ActionName("DeleteEmployee")]
         [ValidateAntiForgeryToken]
+  
         public IActionResult DeleteEmployeeConfirmed(int id)
         {
             if (db.Suppliers == null)
             {
                 return Problem("Entity set 'Supplier' is null.");
             }
-            var supplier = db.Suppliers.Find(id);
+
+            var supplier = db.Suppliers.Include(s => s.Products).FirstOrDefault(s => s.SupplierId == id);
+
             if (supplier != null)
             {
+
+                foreach (var product in supplier.Products)
+                {
+                    product.SupplierId = null;
+                }
+
                 db.Suppliers.Remove(supplier);
                 db.SaveChanges();
             }
+
             return RedirectToAction(nameof(IndexEmployee));
         }
 

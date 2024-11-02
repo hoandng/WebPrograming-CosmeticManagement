@@ -402,23 +402,28 @@ namespace QuanLyBanMyPham.Controllers
 
         public IActionResult Delete(int? id)
         {
+          
             if (id == null)
             {
-                return NotFound();
+                return NotFound(); 
             }
 
+          
             var product = db.Products
-                .Include(p => p.Category)
-                .Include(p => p.Supplier)
-                .FirstOrDefault(p => p.ProductId == id);
+                .Include(p => p.Category) 
+                .Include(p => p.Supplier) 
+                .FirstOrDefault(p => p.ProductId == id); 
 
+     
             if (product == null)
             {
-                return NotFound();
+                return NotFound(); 
             }
 
+        
             return View(product);
         }
+
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
