@@ -96,7 +96,7 @@ namespace QuanLyBanMyPham.Controllers
 
 
 
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
             if (id == null || db.Users == null)
             {
